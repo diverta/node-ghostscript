@@ -26,7 +26,7 @@ gs.prototype.exec = function(callback) {
   if (!this._input) return callback("Please specify input");
 
   var args = this.options.concat([this._input]).join(' ');
-  exec('gs ' + args, function(err, stdout, stderr) {
+  exec('gs -dLastPage=1 ' + args, function(err, stdout, stderr) {
     callback(err, stdout, stderr);
   });
 };
